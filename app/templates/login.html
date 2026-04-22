@@ -4,12 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
-    <form action="" method="post">
-        Email: <input type="email" name="emailForm"> <br>
-        Senha: <input type="password" name="senhaForm"> <br>
-        <input type="submit" value="Login">
-    </form>
+    <header>
+        <!-- logo -->
+        <!-- sidebar - utilizar daisy ui --> 
+    </header>
+
+    <main class="flex items-center flex-col justify-center"> <!-- background img -->
+
+        <div class="flex gap-4 flex-col p-6 border-solid border-1 rounded-lg">
+            <a href="{{ url_for('home') }}">Voltar ao início</a>
+
+            <h1 class="text-center text-xl">Bem-vindo ao <span class="text-green-500">Topus</span></h1>
+            <p>onde cada movimento te leva mais longe</p>
+
+            <form action="" method="post" class="flex flex-col">
+                Email: <input type="email" name="emailForm" class="border-solid border-b-1 px-2 py-1 my-2"> <br>
+                Senha: <input type="password" name="senhaForm" class="border-solid border-b-1 px-2 py-1 my-2"> <br>
+                <input type="submit" value="Login" class="border-solid border-1 rounded-lg px-1 py-1">
+            </form>
+        </div>
+
+    </main>
+
 </body>
 </html>
