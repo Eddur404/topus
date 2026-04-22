@@ -33,12 +33,12 @@ def login():
         return render_template('login.html')
     
     elif request.method == 'POST':
-        nome = request.form['nomeForm']
+        email = request.form['emailForm']
         senha = request.form['senhaForm']
 
-        user = db.session.query(Usuario).filter_by(nome=nome, senha=hash(senha)).first()
+        user = db.session.query(Usuario).filter_by(email=email, senha=hash(senha)).first()
         if not user:
-            return 'Nome ou senha incorretos'
+            return 'Email ou senha incorretos'
         
         login_user(user)
         return redirect(url_for('home'))
@@ -56,9 +56,10 @@ def registrar():
     
     elif request.method == 'POST':
         nome = request.form['nomeForm']
+        email = request.form['emailForm']
         senha = request.form['senhaForm']
 
-        novo_user = Usuario(nome=nome, senha=hash(senha))
+        novo_user = Usuario(nome=nome, email=email, senha=hash(senha))
         db.session.add(novo_user)
         db.session.commit()
 
