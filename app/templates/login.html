@@ -5,26 +5,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
 </head>
-<body>
+<body class="flex flex-col">
     <header>
-        <!-- logo -->
-        <!-- sidebar - utilizar daisy ui --> 
+        <div class="navbar bg-base-100 shadow-sm">
+            <div class="flex-1">
+                <a class="btn btn-ghost text-xl text-green-600" href="{{ url_for('home') }}">
+                    <img src="../static/img/topus-logo.png" alt="">
+                </a>
+            </div>
+
+            <div class="md:flex hidden gap-2 navbar-end mx-4">
+                <a href="{{ url_for('login') }}" class="py-1 px-4">Entrar</a>      
+                <a href="{{ url_for('registrar') }}" class="rounded-4xl border-solid border-1 py-1 px-4">Cadastre-se</a>          
+            </div>
+
+            <div class="navbar-end md:hidden">
+                <div class="dropdown dropdown-end">
+                    <div tabindex="0" role="button" class="btn btn-ghost btn-circle">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block h-5 w-5 stroke-current"> 
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path> 
+                        </svg>
+                    </div>
+                    <ul tabindex="-1" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+                        <li><a href="{{ url_for('login') }}">Entrar</a></li>
+                        <li><a href="{{ url_for('registrar') }}">Cadastre-se</a></li>
+                    </ul>
+                </div>
+            </div>
     </header>
 
-    <main class="flex items-center flex-col justify-center"> <!-- background img -->
+    <main class="flex items-center flex-col justify-center"> 
 
-        <div class="flex gap-4 flex-col p-6 border-solid border-1 rounded-lg">
-            <a href="{{ url_for('home') }}">Voltar ao início</a>
+        <div class="flex gap-6 flex-col p-6 my-8">
+            <a class="rounded-4xl px-3 py-2 inline-flex w-fit text-center bg-gray-400 text-white" href="{{ url_for('home') }}">← Voltar ao início</a>
 
-            <h1 class="text-center text-xl">Bem-vindo ao <span class="text-green-500">Topus</span></h1>
-            <p>onde cada movimento te leva mais longe</p>
+            <h1 class="text-center text-4xl font-bold">Bem-vindo ao <span class="text-green-600">Topus</span></h1>
+            <p class="text-base text-center text-green-600">onde cada movimento te leva mais longe</p>
 
             <form action="" method="post" class="flex flex-col">
-                Email: <input type="email" name="emailForm" class="border-solid border-b-1 px-2 py-1 my-2"> <br>
-                Senha: <input type="password" name="senhaForm" class="border-solid border-b-1 px-2 py-1 my-2"> <br>
-                <input type="submit" value="Login" class="border-solid border-1 rounded-lg px-1 py-1">
+                Email: <input type="email" name="emailForm" class="border-0 border-b-1 px-2 py-1 my-2"> <br>
+                Senha: <input type="password" name="senhaForm" class="border-0 border-b-1 px-2 py-1 my-2"> <br>
+                
+                <input type="submit" value="Login" class="rounded-4xl px-2 py-2 bg-blue-900 text-white font-bold">
             </form>
+
+            <div class="flex flex-col gap-2 items-center"> 
+                <p class="text-xl">Ainda não possui conta?</p>
+                <a class="text-blue-600 font-bold" href="{{ url_for('registrar') }}">Faça seu cadastro aqui!</a>
+            </div>
         </div>
 
     </main>
