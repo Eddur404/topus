@@ -3,7 +3,31 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Topus</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            text-align: center;
+        }
+
+        .container {
+            padding: 2rem;
+        }
+
+        h1 {
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: #666;
+        }
+    </style>
 </head>
 <body>
     {% if current_user.is_authenticated %}
@@ -12,5 +36,9 @@
         <h1>Você não está logado.</h1>
     {% endif %}
 
+    <div class="container">
+        <h1>🚧 Site em Construção</h1>
+        <p>Estamos trabalhando para trazer novidades em breve.</p>
+    </div>
 </body>
 </html>
